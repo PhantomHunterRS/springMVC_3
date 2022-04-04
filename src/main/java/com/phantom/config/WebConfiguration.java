@@ -11,14 +11,17 @@ import javax.servlet.ServletRegistration;
 public class WebConfiguration implements WebApplicationInitializer {
 
     public static final String DISPATCHER_SERVLET_NAME = "dispatcher";
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(Config.class);
 
         DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
-        ServletRegistration.Dynamic registration = servletContext.addServlet(DISPATCHER_SERVLET_NAME,dispatcherServlet);
+
+        ServletRegistration.Dynamic registration = servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherServlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
+
     }
 }
