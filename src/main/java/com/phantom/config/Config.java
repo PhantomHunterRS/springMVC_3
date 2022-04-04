@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @ComponentScan("com.phantom")
-@PropertySource("")
+//@PropertySource("")
 @EnableWebMvc
 public class Config {
     public static final String RESOLVER_PREFIX = "/WEB-INF/view/";
